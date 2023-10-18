@@ -1,0 +1,38 @@
+CREATE DATABASE lojabd;
+
+CREATE TABLE Funcionarios (
+    nome VARCHAR(100),
+    data_contratacao DATE,
+    salario NUMERIC(10, 2),
+    ativo BOOLEAN,
+    departamento TEXT,
+    endereco JSON
+);
+
+CREATE TABLE Produtos (
+    nome VARCHAR(100),
+    preco MONEY,
+    quantidade_estoque INT,
+    descricao TEXT,
+    categorias TEXT[]
+);
+
+INSERT INTO Funcionarios (nome, data_contratacao, salario, ativo, departamento, endereco)
+VALUES 
+    ('Carlos', '2022-05-10', 4000.00, true, 'Vendas', '{"rua": "Avenida 456", "Piaui": "Nº6"}'),
+    ('Lucia', '2021-01-20', 6500.50, true, 'RH', '{"rua": "Rua João", "Manaus": "Nº151"}'),
+    ('Matheus', '2023-11-10', 6500.75, true, 'Tecnologia', '{"rua": "Rua São Manuel", "Santa Catarina": "Nº325"}'),
+    ('Juliana', '2022-03-05', 4800.25, true, 'Marketing', '{"rua": "Rua CDB", "São Paulo": "Nº515"}'),
+    ('Silvio', '2021-09-12', 4000.00, true, 'Vendas', '{"rua": "Rua LKJ", "Minas Gerais": "Nº645"}');
+
+INSERT INTO Produtos (nome, preco, quantidade_estoque, descricao, categorias)
+VALUES
+    ('IPHONE 14', 4699.99, 20, 'Um Iphone avançado com recursos impressionantes.', ARRAY['Eletrônicos']),
+    ('Camisa de Linho Fino', 29.99, 50, 'Uma camisa confortável de linho fino.', ARRAY['Roupas']),
+    ('Bola de Basquete', 229.99, 30, 'Uma bola de basquete de alta qualidade.', ARRAY['Esportes']),
+    ('Sucrilhos', 27.99, 100, 'Cereal energetico e delicioso para o dia.', ARRAY['Alimentos']),
+    ('Dom Quixote', 36.99, 25, 'Um livro com potencial de despertar o melhor em você.', ARRAY['Livros']);
+	
+	
+SELECT * FROM produtos;
+SELECT * FROM funcionarios;
